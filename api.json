@@ -1,0 +1,12 @@
+{
+  "category" : "Parts",
+  "count" : 5,
+  "items" : [
+    { "product_uid" : 3423, "product_name" : "tire",      "product_price" : 350,  "product_trader" :  "Tire - trader",  "product_location" : "Lorem 1 location"},
+    { "product_uid" : 1856, "product_name" : "door",      "product_price" : 350,  "product_trader" :  "Door - trader",  "product_location" : "Lorem 3 location"},
+    { "product_uid" : 9345, "product_name" : "wings",     "product_price" : 6000, "product_trader" :  "wings - trader", "product_location" : "Lorem 6 location"},
+    { "product_uid" : 2378, "product_name" : "body",      "product_price" : 2700, "product_trader" :  "Body - trader",  "product_location" : "Lorem 8 location"},
+    { "product_uid" : 9523, "product_name" : "soft tire", "product_price" : 450,  "product_trader" :  "Tire - trader",  "product_location" : "Lorem 5 location"}
+  ],
+  "currency" : "USD"
+}
