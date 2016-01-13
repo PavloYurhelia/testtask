@@ -4,10 +4,8 @@ namespace PY\Core;
 
 class Response
 {
-    public static function view(string $template, array $params = [])
+    public static function view(TemplateEngineInterface $templateEngine, string $template, array $params = [])
     {
-        $templateEngine = Storage::get('template_engine');
-
         return $templateEngine->make($template, $params);
     }
 

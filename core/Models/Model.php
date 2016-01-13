@@ -2,19 +2,19 @@
 
 namespace PY\Core\Models;
 
-use PY\Core\Models\Adapters\AbstractAdapter;
+use PY\Core\Models\Drivers\ModelDriverInterface;
 
 class Model
 {
-    private $adapter = null;
+    private $driver = null;
 
-    public function __construct(AbstractAdapter $adapter)
+    public function __construct(ModelDriverInterface $driver)
     {
-        $this->adapter = $adapter;
+        $this->driver = $driver;
     }
 
     public function execute(string $query, $params = [])
     {
-        return $this->adapter->execute($query, $params);
+        return $this->driver->execute($query, $params);
     }
 }

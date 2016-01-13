@@ -33,6 +33,11 @@ define('DEFAULT_METHOD', 'index');
 /** Require autoloader */
 require_once  APP_ROOT . 'autoloader.php';
 
+$DBSettings = require_once CONFIG_ROOT . 'database.php';
+$dependencies = require_once CONFIG_ROOT . 'dependencyConfig.php';
+
+\PY\Core\ObjectManager::getInstance($dependencies);
+
 /** Let's start */
 $app = new \PY\Core\App();
 

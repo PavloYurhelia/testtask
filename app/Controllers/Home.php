@@ -2,41 +2,23 @@
 
 namespace PY\App\Controllers;
 
-use PY\Core\Storage,
-    PY\Core\Response,
-    PY\Core\Controller;
+use PY\Core\Response,
+    PY\Core\Controller,
+    PY\Core\TemplateEngineInterface,
+    PY\App\Providers\ProviderFactory;
 
 class Home extends Controller
 {
-    public function index()
-    {
-        $products = array_merge(
-            $this->getOurProducts(),
-            $this->getCoyoteProducts(),
-            $this->getFoxProducts()
-        );
+    public function index(
+        ProviderFactory $factory,
+        TemplateEngineInterface $templateEngine
+    ){
+        $products = [
+            'Wolf' => $factory->build('WolfProvider')->getProducts(),
+            'Coyote' => $factory->build('CoyoteProvider')->getProducts(),
+            'Fox' => $factory->build('FoxProvider')->getProducts()
+        ];
 
-        return Response::view('content', ['productsList' => $products]);
-    }
-
-    protected function getOurProducts()
-    {
-        $productModel = $this->getModel('ProductModel');
-
-        return ['Wolf' => $productModel->getAll()];
-    }
-
-    protected function getCoyoteProducts()
-    {
-        $coyote = Storage::get('coyote_api');
-
-        return ['Coyote' => $coyote->getProducts()];
-    }
-
-    protected function getFoxProducts()
-    {
-        $fox = Storage::get('fox_api');
-
-        return ['Fox' => $fox->getProducts()];
+        return Response::view($templateEngine, 'content', ['productsList' => $products]);
     }
 }

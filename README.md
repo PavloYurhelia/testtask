@@ -1,2 +1,2 @@
 # testtask
-Code to pass the interview
+Code for the interview

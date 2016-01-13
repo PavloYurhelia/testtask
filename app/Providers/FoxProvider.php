@@ -1,8 +1,8 @@
 <?php
 
-namespace PY\Core;
+namespace PY\App\Providers;
 
-class FoxAPI
+class FoxProvider implements ProviderInterface
 {
     /** Some dummy URL of Fox company's API */
     private $url = 'http://fox.com/api/2.0';

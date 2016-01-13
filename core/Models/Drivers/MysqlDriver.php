@@ -1,11 +1,17 @@
 <?php
 
-namespace PY\Core\Models\Adapters;
+namespace PY\Core\Models\Drivers;
 
 use PDO;
 
-class MysqlAdapter extends AbstractAdapter
+class MysqlDriver implements ModelDriverInterface
 {
+    protected $host;
+    protected $DBName;
+    protected $userName;
+    protected $password;
+    protected $connection;
+
     public function __construct(string $host, string $DBName, string $userName, string $password)
     {
         $this->driver = 'mysql';

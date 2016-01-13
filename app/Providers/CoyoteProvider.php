@@ -1,16 +1,21 @@
 <?php
 
-namespace PY\Core;
+namespace PY\App\Providers;
 
 use PY\Core\Utils\CSVParser;
 
-class CoyoteAPI
+class CoyoteProvider
 {
+    private $parser;
+
+    public function __construct(CSVParser $parser)
+    {
+        $this->parser = $parser;
+    }
+    
     public function getProducts()
     {
-        $csvParser = new CSVParser();
-
-        $content = $csvParser->get(RESOURCES_ROOT . 'coyote_company.csv');
+        $content = $this->parser->get(RESOURCES_ROOT . 'coyote_company.csv');
 
         $products = [];
         foreach ($content as $line) {
